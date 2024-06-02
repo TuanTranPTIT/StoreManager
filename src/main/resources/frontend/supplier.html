@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Quản lý sản phẩm</title>
+
+    <link type="text/css" href="files/css/main.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <!--HEADER-->
+    <div class="header">
+        <h1>QUẢN LÝ CỬA HÀNG</h1>
+        <div class="logout" style="display: flex">
+            <div style="margin-top: 15px">Xin chào :</div> &nbsp; &nbsp; <b><div id="user-info"></div></b> &nbsp; &nbsp;
+            <div style="margin-top: 14px">| <a onclick="Logout()" title="Log out">Log out</a></div>
+        </div>
+        <!--NAVIGATION BAR-->
+        <ul class="navigation">
+            <a href="supplier.html" title="Quản lý nhà cung cấp" class="navigation-item-selected">
+                <li>Quản lý nhà cung cấp</li>
+            </a>
+            <a href="bill.html" title="Nhập hàng">
+                <li>Quản lý hóa đơn nhập</li>
+            </a>
+            <a href="supplierStatistics.html" title="Thống kê nhà cung cấp">
+                <li>Thống kê nhà cung cấp</li>
+            </a>
+        </ul>
+        <!--NAVIGATION BAR-->
+    </div>
+    <!--END HEADER-->
+
+    <!--CONTENT-->
+    <div class="content">
+
+        <!--TIM KIEM-->
+        <form class="timkiem" name="frmTimKiem" id="frmTimKiem" method="post" style="display: flex; margin-right: 80px;">
+            <input type="search" class="txt" name="txtSearch" id="txtSearch" placeholder="Nhập từ khoá cần tìm" style="width: 229px;" />
+            <button type="button" onclick="submitSearch()">Tìm kiếm</button>
+        </form>
+        <!--END TIM KIEM-->
+
+        <!--DANH SACH-->
+        <div class="danhsach" style="margin-left: 80px; margin-right: 80px;">
+            <ul class="danhsach-header">
+                <li style="width:60px;">ID</li>
+                <li style="width:200px;">Công ty</li>
+                <li style="width:200px;">Địa chỉ</li>
+                <li style="width:200px;">Số điện thoại</li>
+                <li style="width:250px;">Thông tin ngân hàng</li>
+                <li style="width:200px;">Giám đốc</li>
+                <li style="width:150px; float:right; text-align:right;">
+                    <a href="createSupplier.html" name="btnCreateSupplier" id="btnCreateSupplier" title="Thêm nhà cung cấp mới">+ Thêm mới</a>
+                </li>
+            </ul>
+            <div class="danhsach-chitiet">
+                <ul class="danhsach-item">
+                    <li style="width:60px;" id="id">1</li>
+                    <li style="width:200px;" id="name">Công ty CP</li>
+                    <li style="width:200px;" id="address">KCN Nam Thăng Long</li>
+                    <li style="width:200px;" id="phone">0987415209</li>
+                    <li style="width:250px;" id="bank">Techcombank 19036936191100</li>
+                    <li style="width:200px;" id="manager">Trần Văn A</li>
+                    <li style="width:150px; float:right; text-align:right;">
+                        <a class="lnkSua" name="btnSua1" id="btnSua1" data-id="1" title="Sửa tài khoản" href="updateSupplier.html">Sửa</a>
+                        <a class="lnkXoa" name="btnXoa1" id="btnXoa1" data-id="1" title="Xoá tài khoản">Xoá</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <!--END DANH SACH-->
+        <!--END CONTENT-->
+
+        <!--FOOTER-->
+        <div class="footer">
+            <p><b>Web quản lý nhà hàng</b></p>
+            <span style="line-height:18px;">
+            <b>Người thực hiện:</b><br/> GR_20
+            <br/>
+            </span>
+        </div>
+        <!--END FOOTER-->
+
+</body>
+<script type="text/javascript" src="files/js/supplier.js"></script>
+<script type="text/javascript">
+    // Gọi hàm GetSuppliers() khi trang được tải
+    window.onload = GetSuppliers;
+</script>
+<script src="files/js/login.js"></script>
+
+</html>

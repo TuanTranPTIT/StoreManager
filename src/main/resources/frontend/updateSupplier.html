@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sửa sản phẩm</title>
+
+    <link type="text/css" href="files/css/main.css" rel="stylesheet" />
+    <script type="text/javascript" src="files/js/supplier.js"></script>
+    <script type="text/javascript">
+        // Lấy URL hiện tại
+        var url = window.location.href;
+
+        // Phân tích chuỗi URL để lấy tham số 'id'
+        var id = url.match(/[?&]id=(\d+)/)[1];
+        // Gọi hàm GetSupplierById() khi trang được tải
+        window.onload = GetSupplierById(id);
+    </script>
+
+</head>
+
+<body>
+    <!--HEADER-->
+    <div class="header">
+        <h1>QUẢN LÝ CỬA HÀNG</h1>
+        <div class="logout" style="display: flex">
+            <div style="margin-top: 15px">Xin chào :</div> &nbsp; &nbsp; <b><div id="user-info"></div></b> &nbsp; &nbsp;
+            <div style="margin-top: 14px">| <a onclick="Logout()" title="Log out">Log out</a></div>
+        </div>
+        <!--NAVIGATION BAR-->
+        <ul class="navigation">
+            <a href="supplier.html" title="Quản lý nhà cung cấp" class="navigation-item-selected">
+                <li>Quản lý nhà cung cấp</li>
+            </a>
+            <a href="bill.html" title="Nhập hàng">
+                <li>Quản lý hóa đơn nhập</li>
+            </a>
+            <a href="supplierStatistics.html" title="Thống kê nhà cung cấp">
+                <li>Thống kê nhà cung cấp</li>
+            </a>
+        </ul>
+        <!--NAVIGATION BAR-->
+    </div>
+    <!--END HEADER-->
+
+    <!--CONTENT-->
+    <div class="content">
+        <p class="content-title">Sửa nhà cung cấp</p>
+        <form name="frmThemNhaCungCapMoi" id="frmThemNhaCungCapMoi" method="put" action="#">
+            <p>ID:</p>
+            <p class="txt" name="pId" id="pId" required style="width:100px; height:20px"></p> <br/><br/>
+            <p>Công ty:</p>
+            <input type="text" class="txt" name="txtName" id="txtName" required style="width:300px;" /> <br/><br/>
+
+            <p>Địa chỉ:</p>
+            <input type="text" class="txt" name="txtAddress" id="txtAddress" required style="width:300px;" /> <br/><br/>
+
+            <p>Số điện thoại:</p>
+            <input type="text" class="txt" name="txtPhone" id="txtPhone" required style="width:300px;" /><br/><br/>
+
+            <p>Thông tin Ngân hàng:</p>
+            <input type="text" class="txt" name="txtBank" id="txtBank" required style="width:300px;" /><br/><br/>
+
+            <p>Giám đốc:</p>
+            <input type="text" class="txt" name="txtManager" id="txtManager" required style="width:300px;" /><br/><br/>
+
+            <button type="button" class="btn" name="btnUpdateSupplier" id="btnUpdateSupplier" onclick="UpdateSupplier()" style="width:50px; height: 30px;"> Sửa</button>
+        </form>
+    </div>
+    <!--END CONTENT-->
+
+    <!--FOOTER-->
+    <div class="footer">
+        <p><b>Web quản lý nhà hàng</b></p>
+        <span style="line-height:18px;">
+            <b>Người thực hiện:</b><br/>
+            GR_20<br/>
+        </span>
+    </div>
+    <!--END FOOTER-->
+
+</body>
+<script src="files/js/login.js"></script>
+
+</html>

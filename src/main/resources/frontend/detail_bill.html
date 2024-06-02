@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products</title>
+    <link type="text/css" href="files/css/bill.css" rel="stylesheet" />
+    <link type="text/css" href="files/css/main.css" rel="stylesheet" />
+    <style>
+        .right {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!--HEADER-->
+    <div class="header">
+        <h1>QUẢN LÝ CỬA HÀNG</h1>
+        <div class="logout" style="display: flex">
+            <div style="margin-top: 15px">Xin chào :</div> &nbsp; &nbsp; <b><div id="user-info"></div></b> &nbsp; &nbsp;
+            <div style="margin-top: 14px">| <a onclick="Logout()" title="Log out">Log out</a></div>
+        </div>
+        <!--NAVIGATION BAR-->
+        <ul class="navigation">
+            <a href="supplier.html" title="Quản lý nhà cung cấp">
+                <li>Quản lý nhà cung cấp</li>
+            </a>
+            <a href="bill.html" title="Nhập hàng" class="navigation-item-selected">
+                <li>Quản lý hóa đơn nhập</li>
+            </a>
+            <a href="supplierStatistics.html" title="Thống kê nhà cung cấp">
+                <li>Thống kê nhà cung cấp</li>
+            </a>
+        </ul>
+        <!--NAVIGATION BAR-->
+    </div>
+
+    <div style="display: flex;">
+        <p style="margin-left: 5%;" class="select-product info">
+            ID Hoá đơn nhập: &nbsp;
+        </p>
+        <p id="bill_id" class="select-product info"></p>
+    </div>
+
+    <div class="show-supplier info">
+        <p>Ngày: &nbsp;</p>
+        <p id="date"></p>
+    </div>
+
+    <div class="show-supplier info">
+        <p>Nhà cung cấp: &nbsp;</p>
+        <p id="supplierInfo"></p>
+    </div>
+
+    <table id="itemTableBody" style="margin-top: 1%; margin-bottom: 2%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên sản phẩm</th>
+                <th class="right">Giá nhập</th>
+                <th class="right">Số lượng</th>
+                <th class="right">Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody id="selectedProductTableBody">
+            <!-- Selected product rows will be displayed here -->
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th></th>
+                <th>Tổng thanh toán</th>
+                <th></th>
+                <th></th>
+                <th id="total_cost" class="right"></th>
+            </tr>
+        </tfoot>
+
+    </table>
+
+    <button class="save" onclick="UpdateBill()">Sửa</button>
+
+    <!--FOOTER-->
+    <div class="footer">
+        <p><b>Web quản lý nhà hàng</b></p>
+        <span style="line-height:18px;">
+      <b>Người thực hiện:</b><br/>
+      GR_20<br/>
+  </span>
+    </div>
+
+    <script src="files/js/detail_bill.js"></script>
+
+    <script>
+        // Phân tích chuỗi URL để lấy tham số 'billId'
+        var url = new URL(window.location.href);
+        var id = url.searchParams.get("billId");
+        var supplierName = url.searchParams.get("supplierName");
+
+        // Gọi hàm getAllItem() khi trang được tải
+        window.onload = function() {
+            getBillDetail(id, supplierName);
+            getAllItem(id);
+        };
+    </script>
+    <!--END FOOTER-->
+</body>
+<script src="files/js/login.js"></script>
+
+</html>

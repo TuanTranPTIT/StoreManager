@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.container {
+    max-width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form label {
+    font-weight: bold;
+}
+
+table {
+    width: 80%;
+    /* Bảng chiếm 80% của container */
+    margin: 0 auto;
+    /* Căn giữa bảng */
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    /* Tăng khoảng cách giữa nội dung và đường viền */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+    /* Thêm hiệu ứng chuyển đổi màu nền */
+}
+
+th {
+    background-color: rgb(186, 213, 152);
+    /* Màu của thead */
+}
+
+
+/* Hiệu ứng hover cho hàng trong bảng */
+
+tr:hover {
+    background-color: rgb(221, 230, 204);
+    /* Màu nền khi hover */
+}
+
+button {
+    padding: 8px 16px;
+    background-color: rgb(104, 168, 173);
+    /* Màu của nút */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /* Thêm hiệu ứng chuyển đổi màu nền */
+}
+
+button:hover {
+    background-color: rgb(85, 143, 149);
+    /* Màu của nút khi hover */
+}
+
+button:active {
+    background-color: rgb(63, 106, 111);
+    /* Màu của nút khi được click */
+}
+
+
+/* Responsive styles */
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    form {
+        display: block;
+    }
+    form input[type="date"],
+    form button {
+        display: block;
+        margin: 10px auto;
+    }
+    table {
+        width: 100%;
+        /* Bảng chiếm 100% của container trên thiết bị di động */
+    }
+    th,
+    td {
+        padding: 8px;
+        /* Giảm khoảng cách giữa nội dung và đường viền */
+    }
+    button {
+        padding: 6px 12px;
+    }
+}

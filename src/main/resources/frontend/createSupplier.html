@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Thêm sản phẩm</title>
+
+    <link type="text/css" href="files/css/main.css" rel="stylesheet" />
+    <script type="text/javascript" src="files/js/supplier.js"></script>
+
+</head>
+
+<body>
+    <!--HEADER-->
+    <div class="header">
+        <h1>QUẢN LÝ CỬA HÀNG</h1>
+        <div class="logout" style="display: flex">
+            <div style="margin-top: 15px">Xin chào :</div> &nbsp; &nbsp; <b><div id="user-info"></div></b> &nbsp; &nbsp;
+            <div style="margin-top: 14px">| <a onclick="Logout()" title="Log out">Log out</a></div>
+        </div>
+        <!--NAVIGATION BAR-->
+        <ul class="navigation">
+            <a href="supplier.html" title="Quản lý nhà cung cấp" class="navigation-item-selected">
+                <li>Quản lý nhà cung cấp</li>
+            </a>
+            <a href="bill.html" title="Nhập hàng">
+                <li>Quản lý hóa đơn nhập</li>
+            </a>
+            <a href="supplierStatistics.html" title="Thống kê nhà cung cấp">
+                <li>Thống kê nhà cung cấp</li>
+            </a>
+        </ul>
+        <!--NAVIGATION BAR-->
+    </div>
+    <!--END HEADER-->
+
+    <!--CONTENT-->
+    <div class="content">
+        <p class="content-title">Thêm nhà cung cấp mới</p>
+        <form id="frmThemNhaCungCapMoi" method="post" action="#">
+            <p>Công ty:</p>
+            <input type="text" class="txt" id="txtName" required style="width:300px;" /> <br/><br/>
+
+            <p>Địa chỉ:</p>
+            <input type="text" class="txt" id="txtAddress" required style="width:300px;" /> <br/><br/>
+
+            <p>Số điện thoại:</p>
+            <input type="text" class="txt" id="txtPhone" required style="width:300px;" /><br/><br/>
+
+            <p>Thông tin Ngân hàng:</p>
+            <input type="text" class="txt" id="txtBank" required style="width:300px;" /><br/><br/>
+
+            <p>Giám đốc:</p>
+            <input type="text" class="txt" id="txtManager" required style="width:300px;" /><br/><br/>
+
+            <button type="button" class="btn" id="btnCreateSupplier" onclick="CreateSupplier()" style="width:50px; height: 30px;">Thêm</button>
+        </form>
+    </div>
+    <!--END CONTENT-->
+
+    <!--FOOTER-->
+    <div class="footer">
+        <p><b>Web quản lý nhà hàng</b></p>
+        <span style="line-height:18px;">
+                <b>Người thực hiện:</b><br/>
+                GR_20<br/>
+            </span>
+    </div>
+    <!--END FOOTER-->
+
+</body>
+<script src="files/js/login.js"></script>
+
+</html>

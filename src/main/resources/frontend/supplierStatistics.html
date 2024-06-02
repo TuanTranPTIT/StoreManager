@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Thêm nhà cung cấp</title>
+
+    <link type="text/css" href="files/css/main.css" rel="stylesheet" />
+    <link type="text/css" href="files/css/bill.css" rel="stylesheet" />
+    <script type="text/javascript" src="files/js/supplier_statistics.js"></script>
+
+
+</head>
+
+<body>
+    <!--HEADER-->
+    <div class="header">
+        <h1>QUẢN LÝ CỬA HÀNG</h1>
+        <div class="logout" style="display: flex">
+            <div style="margin-top: 15px">Xin chào :</div> &nbsp; &nbsp; <b><div id="user-info"></div></b> &nbsp; &nbsp;
+            <div style="margin-top: 14px">| <a onclick="Logout()" title="Log out">Log out</a></div>
+        </div>
+        <!--NAVIGATION BAR-->
+        <ul class="navigation">
+            <a href="supplier.html" title="Quản lý nhà cung cấp">
+                <li>Quản lý nhà cung cấp</li>
+            </a>
+            <a href="bill.html" title="Nhập hàng">
+                <li>Quản lý hóa đơn nhập</li>
+            </a>
+            <a href="supplierStatistics.html" title="Thống kê nhà cung cấp" class="navigation-item-selected">
+                <li>Thống kê nhà cung cấp</li>
+            </a>
+        </ul>
+        <!--NAVIGATION BAR-->
+    </div>
+    <!--END HEADER-->
+
+    <!--CONTENT-->
+    <div style="display: flex; margin-left: 5%; margin-top: 30px; margin-bottom: 30px">
+        <p style="font-size: 20px;">Tìm nhà cung cấp</p>
+        <div class="search-products" style="display: flex; margin-left: 3.3%; ">
+            <input style="width: 310px; " type="text" id="searchInput" placeholder="Nhập tên nhà cung cấp">
+            <button style="margin-left: 3%;border-radius: 5px; width: 100px; margin-top: 10px;" onclick="SearchSuppliers()">Tìm kiếm</button>
+        </div>
+    </div>
+
+    <table id="supplierTable" style="margin-top: 1%; margin-bottom: 2%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nhà cung cấp</th>
+                <th class="right">Số lượng</th>
+                <th class="right">Tổng tiền nhập</th>
+                <th style="text-align: center;">Tùy chọn</th>
+            </tr>
+        </thead>
+        <tbody id="supplierTableBody">
+            <!-- Selected product rows will be displayed here -->
+        </tbody>
+    </table>
+    <!--END CONTENT-->
+
+    <!--FOOTER-->
+    <div class="footer">
+        <p><b>Web quản lý nhà hàng</b></p>
+        <span style="line-height:18px; ">
+            <b>Người thực hiện:</b><br/>
+            GR_20<br/>
+        </span>
+    </div>
+    <!--END FOOTER-->
+
+</body>
+<script src="files/js/login.js "></script>
+<script>
+    // Gọi hàm hien thi khi trang được tải
+    window.onload = function() {
+        window.onload = getAllSupplier()
+    };
+</script>
+
+</html>

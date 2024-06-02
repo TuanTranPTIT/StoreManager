@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách hóa đơn</title>
+    <link rel="stylesheet" type="text/css" href="files/css/ds_bill.css">
+    <link rel="stylesheet" type="text/css" href="files/css/main.css">
+    <script src="files/js/bill.js"></script>
+
+</head>
+
+<body>
+    <!--HEADER-->
+    <div class="header">
+        <h1>QUẢN LÝ CỬA HÀNG</h1>
+        <div class="logout" style="display: flex">
+            <div style="margin-top: 15px">Xin chào :</div> &nbsp; &nbsp; <b><div id="user-info"></div></b> &nbsp; &nbsp;
+            <div style="margin-top: 14px">| <a onclick="Logout()" title="Log out">Log out</a></div>
+        </div>
+        <!--NAVIGATION BAR-->
+        <ul class="navigation">
+            <a href="supplier.html" title="Quản lý nhà cung cấp">
+                <li>Quản lý nhà cung cấp</li>
+            </a>
+            <a href="bill.html" title="Nhập hàng" class="navigation-item-selected">
+                <li>Quản lý hóa đơn nhập</li>
+            </a>
+            <a href="supplierStatistics.html" title="Thống kê nhà cung cấp">
+                <li>Thống kê nhà cung cấp</li>
+            </a>
+        </ul>
+        <!--NAVIGATION BAR-->
+    </div>
+    <!--END HEADER-->
+    <div class="container">
+        <h1 style="font-size: 25px; font-weight:bold; color:darkslategrey">Danh sách hóa đơn</h1><br>
+        <form id="searchForm">
+            <label for="searchDate">Tìm kiếm theo ngày:</label>
+            <input type="date" id="searchDate" name="searchDate">
+            <button type="submit">Tìm kiếm</button>
+        </form><br>
+        <table id="billTable">
+            <thead>
+                <tr>
+                    <th style="width: 30px; text-align: right;">ID</th>
+                    <th>Ngày</th>
+                    <th>Nhà cung cấp</th>
+                    <th style="text-align: right;">Tổng chi phí</th>
+                    <th style="width:150px; text-align: center;">
+                        <a href="createBill.html" name="btnCreateBill" id="btnCreate" title="Thêm bill mới">+ Thêm mới</a>
+                    </th>
+
+                    <!-- Column for buttons -->
+                </tr>
+            </thead>
+            <tbody id="billList">
+                <!-- Dữ liệu hóa đơn sẽ được thêm vào đây bằng JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <!--FOOTER-->
+    <div class="footer">
+        <p><b>Web quản lý nhà hàng</b></p>
+        <span style="line-height:18px;">
+      <b>Người thực hiện:</b><br/>
+      GR_20<br/>
+  </span>
+    </div>
+    <!--END FOOTER-->
+
+    <script>
+        // Function to fetch data from API and update table
+        async function fetchData(date = null) {
+            let url = 'http://localhost:8080/api/bills';
+            if (date) {
+                url = 'http://localhost:8080/api/bill/search?date=' + date;
+            }
+
+            try {
+                let response = await fetch(url);
+                let data = await response.json();
+                const billList = document.getElementById('billList');
+                // Clear previous data
+                billList.innerHTML = '';
+
+                for (let bill of data) {
+                    try {
+                        let supplierResponse = await fetch('http://localhost:8080/api/supplier?id=' + bill.supplierId);
+                        let supplierData = await supplierResponse.json();
+                        let supplierName = supplierData.name || 'Không có';
+
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td style="text-align: right;">${bill.id}</td>
+                            <td>${bill.date}</td>
+                            <td>${supplierName}</td>
+                            <td style='text-align: right; width: 200px;'>${bill.totalCost} đ</td>
+                            <td style='width: 300px; text-align: center'>
+                                <a class="lnkXem" name="btnXem${bill.id}" data-id="${bill.id}" title="Chi tiết" href="detail_bill.html?billId=${bill.id}">Chi tiết</a>
+                                <a class="lnkSua" name="btnSua${bill.id}" data-id="${bill.id}" title="Sửa" href="update_bill.html?billId=${bill.id}">Sửa</a>
+                                <a class="lnkXoa" name="btnXoa${bill.id}" data-id="${bill.id}" title="Xoá" onclick="DeleteBill(${bill.id})">Xoá</a>
+                            </td>
+                        `;
+                        billList.appendChild(row);
+                    } catch (error) {
+                        console.error('Error fetching supplier details:', error);
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching bills:', error);
+            }
+        }
+
+
+        // Call fetchData function when the page loads
+        window.onload = () => fetchData();
+
+        // Search form submission event
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const searchDate = document.getElementById('searchDate').value;
+            fetchData(searchDate);
+        });
+    </script>
+</body>
+<script src="files/js/login.js"></script>
+
+</html>

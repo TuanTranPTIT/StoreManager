@@ -1,0 +1,189 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-input {
+    width: 200px;
+    /* Độ rộng của ô input */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-height: 200px;
+    /* Chiều cao tối đa của dropdown */
+    overflow-y: auto;
+    /* Cho phép cuộn nếu nội dung vượt quá chiều cao tối đa */
+    z-index: 1;
+}
+
+.dropdown-option {
+    padding: 10px;
+    border: 1px solid rgb(196, 212, 175);
+    cursor: pointer;
+}
+
+.dropdown-option:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+
+/* CSS styles */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+/* CSS cho các thẻ h2 */
+
+.show-supplier {
+    color: #173c0b;
+    margin-left: 5%;
+    display: flex;
+    font-size: 16px;
+}
+
+
+/* CSS cho các nút và input */
+
+button {
+    background-color: rgb(104, 168, 173);
+    ;
+    /* Màu xanh lá cây */
+    color: #FFFFFF;
+    /* Màu chữ trắng */
+    border: none;
+    /* Loại bỏ viền */
+    padding: 10px;
+    /* Khoảng cách giữa nội dung và viền ngoài */
+    margin-bottom: 10px;
+    /* Khoảng cách giữa các phần tử */
+    display: block;
+    /* Hiển thị các phần tử dạng block */
+    margin-left: auto;
+    /* Căn lề trái của phần tử vào giữa trang */
+    margin-right: auto;
+    /* Căn lề phải của phần tử vào giữa trang */
+}
+
+.dropdown {
+    margin-left: 1%;
+}
+
+.dropdown-content {
+    margin-top: 50px;
+}
+
+.timkiem {
+    background-color: rgb(196, 212, 175);
+    color: #000;
+    border: none;
+    padding: 10px;
+    display: block;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+input[type="text"] {
+    background-color: #cccccc;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+
+/* CSS cho các nút khi hover */
+
+button:hover {
+    background-color: #919191;
+    /* Màu xanh lá cây nhạt */
+}
+
+
+/* CSS cho bảng */
+
+table {
+    width: 90%;
+    /* Bảng chiếm 80% chiều rộng của phần hiển thị */
+    border-collapse: collapse;
+    /* Loại bỏ khoảng trống giữa các ô */
+    margin-left: auto;
+    /* Căn lề trái của bảng vào giữa trang */
+    margin-right: auto;
+    /* Căn lề phải của bảng vào giữa trang */
+}
+
+
+/* CSS cho ô trong bảng */
+
+tr,
+th {
+    border: 1px solid rgb(87, 100, 69);
+    /* Viền của các ô */
+    padding: 8px;
+    /* Khoảng cách giữa nội dung và viền trong ô */
+    text-align: left;
+    /* Căn lề nội dung sang trái */
+}
+
+.select-product {
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+}
+
+
+/* CSS cho ô đầu tiên trong hàng */
+
+th:first-child,
+td:first-child {
+    text-align: center;
+    /* Căn lề nội dung sang giữa */
+}
+
+
+/* CSS cho hàng nền đậm */
+
+thead tr th {
+    background-color: rgb(186, 213, 152);
+    /* Màu nền xanh lá cây */
+    color: #000000;
+    /* Màu chữ trắng */
+}
+
+.save {
+    margin-top: 10px;
+}
+.info{
+    font-size: 20px;
+    font-weight: 500;
+    text-align: left
+}
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+}
